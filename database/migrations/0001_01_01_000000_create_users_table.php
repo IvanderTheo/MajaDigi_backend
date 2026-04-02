@@ -23,6 +23,7 @@ return new class extends Migration
         $table->date('birth_date')->nullable();
         $table->string('role');
         $table->timestamp('created_at')->useCurrent();
+        $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
     });
     }
 
