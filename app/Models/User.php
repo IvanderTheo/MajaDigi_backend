@@ -16,7 +16,8 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
-
+    protected $keyType = 'string';
+    public $incrementing = false;
     /**
      * Get the attributes that should be cast.
      *
