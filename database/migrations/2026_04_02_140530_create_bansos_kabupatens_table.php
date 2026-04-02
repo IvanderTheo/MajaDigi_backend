@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bansos_kabupatens', function (Blueprint $table) {
+        Schema::create('bansos_kabupaten', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->foreignId('program_id')
+                ->constrained('program_bansos');
+
+            $table->string('kabupaten');
+            $table->integer('quota');
+            $table->integer('distributed');
         });
     }
 

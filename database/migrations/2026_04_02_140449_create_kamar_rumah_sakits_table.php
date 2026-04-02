@@ -11,9 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kamar_rumah_sakits', function (Blueprint $table) {
+        Schema::create('kamar_rs', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->foreignId('rs_id')
+                ->constrained('rumah_sakit');
+
+            $table->string('room_type');
+            $table->integer('total_rooms');
+            $table->integer('available_rooms');
+
+            $table->timestamp('last_updated')->nullable();
         });
     }
 

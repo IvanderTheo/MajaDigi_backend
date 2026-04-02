@@ -12,8 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('program_bansos', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->text('description');
+
+            $table->decimal('total_fund', 15, 2);
+            $table->integer('quota_total');
+            $table->integer('quota_distributed');
+
+            $table->decimal('percentage', 5, 2);
         });
     }
 

@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('open_data_datasets', function (Blueprint $table) {
+        Schema::create('open_data_dataset', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->text('description');
+            $table->string('category');
+            $table->string('source_agency');
+            $table->string('dataset_url');
+
+            $table->timestamp('created_at')->nullable();
         });
     }
 

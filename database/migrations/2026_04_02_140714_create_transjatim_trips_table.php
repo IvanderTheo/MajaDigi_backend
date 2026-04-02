@@ -11,9 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transjatim_trips', function (Blueprint $table) {
+        Schema::create('transjatim_trip', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreignId('route_id')
+                ->constrained('transjatim_route');
+
+            $table->timestamp('trip_date');
+            $table->string('payment_status');
         });
     }
 

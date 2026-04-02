@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transjatim_routes', function (Blueprint $table) {
+        Schema::create('transjatim_route', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+            $table->string('route_name');
+            $table->string('start_point');
+            $table->string('end_point');
+
+            $table->decimal('ticket_price', 10, 2);
         });
     }
 

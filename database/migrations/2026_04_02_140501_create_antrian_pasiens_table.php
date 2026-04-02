@@ -11,9 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('antrian_pasiens', function (Blueprint $table) {
+        Schema::create('antrian_pasien', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreignId('rs_id')
+                ->constrained('rumah_sakit');
+
+            $table->integer('queue_number');
+            $table->string('service_type');
+
+            $table->timestamp('queue_date');
+            $table->string('status');
         });
     }
 

@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('open_data_articles', function (Blueprint $table) {
+        Schema::create('open_data_article', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->text('content');
+            $table->string('author');
+
+            $table->timestamp('published_at')->nullable();
         });
     }
 

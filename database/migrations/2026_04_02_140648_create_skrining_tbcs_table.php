@@ -11,9 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('skrining_tbcs', function (Blueprint $table) {
+        Schema::create('skrining_tbc', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('cough_duration');
+            $table->boolean('fever');
+            $table->boolean('weight_loss');
+            $table->boolean('night_sweat');
+
+            $table->string('screening_result');
+            $table->timestamp('screening_date');
         });
     }
 

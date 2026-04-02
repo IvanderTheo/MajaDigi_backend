@@ -12,8 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('penerima_bansos', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
+
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreignId('program_id')
+                ->constrained('program_bansos');
+
+            $table->decimal('amount', 15, 2);
+            $table->string('status');
+
+            $table->timestamp('received_date')->nullable();
         });
     }
 
