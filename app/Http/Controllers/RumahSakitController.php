@@ -7,8 +7,24 @@ use App\Models\rumah_sakit;
 
 class RumahSakitController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return rumah_sakit::all();
+        $query = rumah_sakit::query();
+
+        if ($request->city) {
+            $query->where('city','ilike', '%'.$request->city.'%');
+        }
+
+        return $query->paginate(10);
+    }
+
+    public function show($id)
+    {
+        return rumah_sakit::findOrFail($id);
+    }
+
+    public function search(Request $request)
+    {
+        return rumah_sakit::where('name', 'ilike', '%'.$request->q.'%')->get();
     }
 }
