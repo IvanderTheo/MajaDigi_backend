@@ -17,12 +17,14 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
-        $request->session()->regenerate();
+        $user = Auth::user();
 
-        // Mengembalikan data user agar Frontend bisa langsung simpan di state/store
+        $token = $user->createToken('auth_token')->plainTextToken; //sanctum
+
         return response()->json([
             'message' => 'Login successful',
-            'user' => Auth::user(),
+            'user' => $user,
+            'token' => $token
         ]);
     }
 
@@ -31,11 +33,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): JsonResponse
     {
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+        $request->user()->currentAccessToken()->delete();
 
         return response()->json([
             'message' => 'Logged out successfully'
