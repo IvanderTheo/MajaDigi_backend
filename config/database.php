@@ -96,7 +96,11 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
+<<<<<<< HEAD
             'sslmode' => env('DB_SSLMODE', 'prefer'),
+=======
+            'sslmode' => 'require',
+>>>>>>> origin/main
         ],
 
         'sqlsrv' => [

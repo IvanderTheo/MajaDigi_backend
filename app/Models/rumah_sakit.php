@@ -17,4 +17,5 @@ class rumah_sakit extends Model
         return $this->hasMany(antrian_pasien::class, 'rs_id')
                     ->where('status', 'waiting'); // misal cuma antrian aktif
     }
+    //
 }

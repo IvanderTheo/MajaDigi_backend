@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids; // Tambahkan ini
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Laravel\Sanctum\HasApiTokens; // token login
 
 // Update Fillable agar sesuai dengan kolom di migrasi MajaDigi kamu
 #[Fillable([
@@ -26,6 +27,7 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasUuids; // Tambahkan HasUuids di sini
+    use HasFactory, Notifiable, HasUuids, HasApiTOkens; // Tambahkan HasUuids di sini, tambahan token
 
     // Beritahu Laravel bahwa Primary Key kita adalah String (UUID)
     protected $keyType = 'string';
