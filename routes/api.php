@@ -2,15 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RumahSakitController;
-
-Route::get('/rumah-sakit', [RumahSakitController::class, 'index']);
-Route::get('/rumah-sakit/search', [RumahSakitController::class, 'search']);
-Route::get('/rumah-sakit/{id}', [RumahSakitController::class, 'show']);
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 // --- GUEST ROUTES ---
@@ -39,4 +34,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::get('/rumah-sakit', [RumahSakitController::class, 'index']);
+    Route::get('/rumah-sakit/search', [RumahSakitController::class, 'search']);
+    Route::get('/rumah-sakit/{id}', [RumahSakitController::class, 'show']);
 });
