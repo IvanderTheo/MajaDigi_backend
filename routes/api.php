@@ -4,8 +4,17 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\NomorDaruratController;
+use App\Http\Controllers\ProgramBansosController;
+use App\Http\Controllers\SkriningTbcController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+
+// --- PUBLIC ROUTES (🔥 untuk testing tanpa login) ---
+Route::get('/nomor-darurat', [NomorDaruratController::class, 'index']);
+Route::get('/program-bansos', [ProgramBansosController::class, 'index']);
+Route::get('/skrining-tbc', [SkriningTbcController::class, 'index']);
+
 
 // --- GUEST ROUTES ---
 Route::middleware('guest')->group(function () {
@@ -15,22 +24,22 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->name('login');
 
-    // Mengirim email link reset password
     Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
                 ->name('password.email');
 
-    // Eksekusi reset password (Controller yang kamu kirim tadi)
     Route::post('/reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
 });
 
+
 // --- AUTHENTICATED ROUTES ---
 Route::middleware('auth:sanctum')->group(function () {
+
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
-    // Route untuk cek profile user yang login
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
 });
