@@ -20,7 +20,11 @@ class RumahSakitController extends Controller
 
     public function show($id)
     {
-        return rumah_sakit::findOrFail($id);
+        $rumah_sakit = rumah_sakit::with(['kamar', 'antrian'])->findOrFail($id);
+
+        return response()->json([
+            'rumah_sakits' => $rumah_sakit
+        ]);
     }
 
     public function search(Request $request)

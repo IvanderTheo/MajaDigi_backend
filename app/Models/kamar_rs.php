@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class antrian_pasien extends Model
+class kamar_rs extends Model
 {
-    protected $table = 'antrian_pasien';
+    protected $table = 'kamar_rs';
 
     public function rs() {
         return $this->belongsTo(rumah_sakit::class, 'rs_id');
