@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transjatim_route', function (Blueprint $table) {
-
+        Schema::create('trans_jatim__detail__routes', function (Blueprint $table) {
             $table->id();
-            $table->string('route_name');
-            $table->string('start_point');
-            $table->string('end_point');
+            $table->string('halte_name');
+            $table->string('latitude');
+            $table->string('longitude');
 
-            $table->decimal('ticket_price', 10, 2)->nullable();
+            $table->foreignId('transjatim_route_id')->constrained('transjatim_route');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transjatim_routes');
+        Schema::dropIfExists('trans_jatim__detail__routes');
     }
 };
