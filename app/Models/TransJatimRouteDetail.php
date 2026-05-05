@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TransJatimRouteDetail extends Model
 {
     //
-    protected $table = 'trans_jatim__detail__routes';
+    protected $table = 'trans_jatim_detail_routes';
 
     protected $hidden = [
         'id',
