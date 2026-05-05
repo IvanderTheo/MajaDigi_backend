@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\OpenDataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RumahSakitController;
@@ -10,27 +9,18 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\NomorDaruratController;
 use App\Http\Controllers\ProgramBansosController;
 use App\Http\Controllers\SkriningTbcController;
+use App\Http\Controllers\TransJatimController;
 use Illuminate\Http\Request;
-
-// --- PUBLIC ROUTES (🔥 untuk testing tanpa login) ---
-Route::get('/nomor-darurat', [NomorDaruratController::class, 'index']);
-Route::get('/program-bansos', [ProgramBansosController::class, 'index']);
-Route::get('/skrining-tbc', [SkriningTbcController::class, 'index']);
-
 
 // --- GUEST ROUTES ---
 Route::middleware('guest')->group(function () {
-    Route::post('/register', [RegisteredUserController::class, 'store'])
-                ->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 
-    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-                ->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
+    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
 
-    Route::post('/reset-password', [NewPasswordController::class, 'store'])
-                ->name('password.store');
+    Route::post('/reset-password', [NewPasswordController::class, 'store']);
 
     //transjatim
     Route::get('/route', [TransJatimController::class, 'index']);
@@ -46,13 +36,21 @@ Route::middleware('guest')->group(function () {
     Route::get('/articles',[OpenDataController::class,'indexArticles']);
     Route::get('/datasets/{id}',[OpenDataController::class, 'showDataset']);
     Route::get('/articles/{id}',[OpenDataController::class,'showArticle']);
+
+    //nomor darurat
+    Route::get('/nomor-darurat', [NomorDaruratController::class, 'index']);
+
+    //bansos
+    Route::get('/program-bansos', [ProgramBansosController::class, 'index']);
+
+    //tbc
+    Route::get('/skrining-tbc', [SkriningTbcController::class, 'index']);
 });
 
 
 // --- AUTHENTICATED ROUTES ---
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
