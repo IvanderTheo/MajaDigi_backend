@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser; //verif role
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens; // token login
 use Filament\Panel; //access admin
 
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasUuids, HasApiTokens; // Tambahkan HasUuids di sini, tambahan token
@@ -50,6 +51,6 @@ class User extends Authenticatable
     }
     public function canAccessPanel(Panel $panel): bool //access admin
     {
-        return $this->role === 'admin';
+        return $this->role === 'admin' && $panel->getId() === 'admin';
     }
 }
