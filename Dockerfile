@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     git curl unzip zip libicu-dev libzip-dev \
     && docker-php-ext-install intl zip pdo pdo_mysql
 
-# enable Apache mod_rewrite for Laravel routing
+# disable default mpm_prefork to avoid MPM conflict, then enable mod_rewrite
+RUN a2dismod mpm_prefork
 RUN a2enmod rewrite
 
 # set document root to Laravel's public directory
