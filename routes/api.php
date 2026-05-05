@@ -10,6 +10,7 @@ use App\Http\Controllers\NomorDaruratController;
 use App\Http\Controllers\ProgramBansosController;
 use App\Http\Controllers\SkriningTbcController;
 use App\Http\Controllers\TransJatimController;
+use App\Http\Controllers\AntrianPasienController;
 use Illuminate\Http\Request;
 
 // --- GUEST ROUTES ---
@@ -57,6 +58,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 
     Route::post('/rumah-sakit',[RumahSakitController::class,'store']);
+
+    //rs
+    Route::get('/rumah-sakit/search', [RumahSakitController::class, 'search']);
+    Route::get('/rumah-sakit/{id}', [RumahSakitController::class, 'show']);
+    Route::get('/rumah-sakit/{id}/antrian', [RumahSakitController::class, 'antrian']);
+
+        Route::post('/antrian/daftar', [AntrianPasienController::class, 'daftarAntrian']);
 
     //role admin
     Route::middleware(['role:admin'])->group(function() {

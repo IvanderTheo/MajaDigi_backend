@@ -15,7 +15,7 @@ class RumahSakitController extends Controller
 
     public function show($id)
     {
-        $rumah_sakit = rumah_sakit::with(['kamar', 'antrian'])->findOrFail($id);
+        $rumah_sakit = rumah_sakit::findOrFail($id);
 
         return response()->json([
             'rumah_sakits' => $rumah_sakit
@@ -25,5 +25,14 @@ class RumahSakitController extends Controller
     public function search(Request $request)
     {
         return rumah_sakit::where('name', 'ilike', '%'.$request->q.'%')->get();
+    }
+    
+    public function antrian($id)
+    {
+        $rumah_sakit = rumah_sakit::findOrFail($id);
+
+        return response()->json([
+            'antrian' => $rumah_sakit->antrian
+        ]);
     }
 }

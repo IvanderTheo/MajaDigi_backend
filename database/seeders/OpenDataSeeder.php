@@ -25,6 +25,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/penduduk-2025',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Kemiskinan 2024',
@@ -34,6 +35,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/kemiskinan-2024',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Sekolah Indonesia',
@@ -43,6 +45,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/sekolah',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Rumah Sakit',
@@ -52,6 +55,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/rumah-sakit',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Curah Hujan',
@@ -61,6 +65,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/curah-hujan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Transportasi Umum',
@@ -70,6 +75,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/transportasi',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data UMKM',
@@ -79,6 +85,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/umkm',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Pariwisata',
@@ -88,6 +95,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/pariwisata',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Jalan Nasional',
@@ -97,6 +105,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/jalan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Energi',
@@ -106,6 +115,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/energi',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Harga Pangan',
@@ -115,6 +125,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/harga-pangan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Ketenagakerjaan',
@@ -124,6 +135,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/tenaga-kerja',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Perikanan',
@@ -133,6 +145,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/perikanan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Pertanian',
@@ -142,6 +155,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/pertanian',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Keuangan Daerah',
@@ -151,6 +165,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/apbd',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Kriminalitas',
@@ -160,6 +175,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/kriminalitas',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Internet',
@@ -169,6 +185,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/internet',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Industri',
@@ -178,6 +195,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/industri',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Ekspor Impor',
@@ -187,6 +205,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/ekspor-impor',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Lingkungan Hidup',
@@ -196,6 +215,7 @@ class OpenDataSeeder extends Seeder
                 'dataset_url' => 'https://data.go.id/dataset/lingkungan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
         DB::table('open_data_article')->insert([
@@ -206,6 +226,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/perkembangan-open-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Manfaat Open Data untuk Masyarakat',
@@ -214,6 +235,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/manfaat-open-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Peran BPS dalam Penyediaan Data',
@@ -222,6 +244,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/peran-bps',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Transformasi Digital Pemerintah',
@@ -230,6 +253,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/transformasi-digital',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Kesehatan Nasional',
@@ -238,6 +262,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/data-kesehatan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Analisis Data Pendidikan',
@@ -246,6 +271,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/data-pendidikan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Penggunaan Data untuk Startup',
@@ -254,6 +280,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/data-startup',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Tren Big Data di Indonesia',
@@ -262,6 +289,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/big-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Transportasi Publik',
@@ -270,6 +298,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/transportasi',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Open Data dan Smart City',
@@ -278,6 +307,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/smart-city',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Keamanan Data Publik',
@@ -286,6 +316,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/keamanan-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Lingkungan Hidup',
@@ -294,6 +325,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/lingkungan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Pemanfaatan API Data',
@@ -302,6 +334,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/api-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Open Government Data',
@@ -310,6 +343,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/open-government',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Data Ekonomi Digital',
@@ -318,6 +352,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/ekonomi-digital',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Visualisasi Data',
@@ -326,6 +361,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/visualisasi',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Machine Learning dan Data',
@@ -334,6 +370,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/machine-learning',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Integrasi Sistem Informasi',
@@ -342,6 +379,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/integrasi-sistem',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Kebijakan Satu Data Indonesia',
@@ -350,6 +388,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/satu-data',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'title' => 'Masa Depan Open Data',
@@ -358,6 +397,7 @@ class OpenDataSeeder extends Seeder
                 'article_url' => 'https://data.go.id/article/masa-depan',
                 'published_at' => now()->subDays(rand(1, 365)),
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }
