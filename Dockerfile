@@ -1,17 +1,14 @@
 FROM php:8.4-fpm
 
-# Install system dependencies and Apache.
-# Pin mpm_prefork via apt to prevent mpm_worker/mpm_event from being pulled in,
-# then remove the other MPM packages entirely so they can never be loaded.
-RUN apt-get update && apt-get install -y \
+# Install system dependencies and Apache in a single layer.
+# apache2 is installed first so that a2enmod commands in the next layer succeed.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
         git curl unzip zip \
         libicu-dev libzip-dev \
         apache2 \
         libapache2-mod-fcgid \
     && docker-php-ext-install intl zip pdo pdo_mysql \
-    # Remove competing MPM packages at the Debian level so they cannot be loaded
-    && apt-get remove -y libapache2-mod-php* apache2-mpm-worker apache2-mpm-event 2>/dev/null || true \
-    && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Ensure only mpm_prefork is active; enable proxy modules for PHP-FPM
@@ -55,8 +52,10 @@ RUN composer install --no-dev --optimize-autoloader
 # Set correct ownership for Laravel writable directories
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Startup script: launch PHP-FPM in the background, then run Apache in the foreground
-RUN printf '#!/bin/sh\nset -e\nphp-fpm --daemonize\nexec apache2-foreground\n' > /usr/local/bin/start.sh \
+# Startup script: launch PHP-FPM in the background, then run Apache in the foreground.
+# apache2ctl -D FOREGROUND is used instead of apache2-foreground — the latter is only
+# available in the official apache2 Docker image, not in php:fpm-based images.
+RUN printf '#!/bin/sh\nset -e\nphp-fpm --daemonize\nexec apache2ctl -D FOREGROUND\n' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
 EXPOSE 80
