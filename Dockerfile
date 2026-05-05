@@ -11,7 +11,20 @@ RUN apt-get update \
     && docker-php-ext-install intl zip pdo pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
 
-# Ensure only mpm_prefork is active; enable proxy modules for PHP-FPM
+# Ensure only mpm_prefork is active; enable proxy modules for PHP-FPM.
+# Step 1 – Scrub apache2.conf of any LoadModule lines for the competing MPMs
+#          and append an explicit LoadModule for mpm_prefork only.
+#          This prevents Apache from ever seeing more than one MPM directive,
+#          regardless of what symlinks exist in mods-enabled/.
+RUN sed -i \
+        -e '/LoadModule mpm_worker_module/d' \
+        -e '/LoadModule mpm_event_module/d' \
+        -e '/LoadModule mpm_prefork_module/d' \
+        /etc/apache2/apache2.conf \
+    && echo 'LoadModule mpm_prefork_module /usr/lib/apache2/modules/mod_mpm_prefork.so' \
+        >> /etc/apache2/apache2.conf
+# Step 2 – Remove the mods-enabled symlinks for the competing MPMs so that
+#          Apache's own module loader does not pick them up a second time.
 RUN a2dismod mpm_event mpm_worker 2>/dev/null || true \
     && a2enmod mpm_prefork \
     && a2enmod proxy_fcgi setenvif rewrite
