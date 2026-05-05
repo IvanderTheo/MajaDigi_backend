@@ -5,11 +5,10 @@ RUN apt-get update && apt-get install -y \
     git curl unzip zip libicu-dev libzip-dev \
     && docker-php-ext-install intl zip pdo pdo_mysql
 
-# disable ALL MPM modules to avoid "More than one MPM loaded" conflict, then enable mod_rewrite
-RUN a2dismod mpm_prefork
-RUN a2dismod mpm_worker
-RUN a2dismod mpm_event
-RUN a2enmod rewrite
+# fix "More than one MPM loaded" conflict by removing competing MPM load files,
+# keeping only mpm_prefork, then enabling mod_rewrite
+RUN rm -f /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_event.load \
+    && a2enmod mpm_prefork rewrite
 
 # set document root to Laravel's public directory
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
