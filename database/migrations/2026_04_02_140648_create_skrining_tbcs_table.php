@@ -25,6 +25,9 @@ return new class extends Migration
 
             $table->string('screening_result');
             $table->timestamp('screening_date');
+
+            $table->timestamp('updated_at');
+            $table->timestamp('created_at');
         });
     }
 

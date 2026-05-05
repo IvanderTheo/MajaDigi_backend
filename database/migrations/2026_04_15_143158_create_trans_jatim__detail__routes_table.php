@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trans_jatim__detail__routes', function (Blueprint $table) {
+        Schema::create('trans_jatim_detail_routes', function (Blueprint $table) {
             $table->id();
             $table->string('halte_name');
             $table->string('latitude');

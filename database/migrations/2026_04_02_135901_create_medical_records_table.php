@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medical_records', function (Blueprint $table) {
-            Schema::create('medical_record', function (Blueprint $table) {
+
+        Schema::create('medical_record', function (Blueprint $table) {
                 $table->uuid('id')->primary();
 
                 $table->uuid('user_id');
@@ -24,8 +24,8 @@ return new class extends Migration
                 $table->string('dokter');
                 $table->text('keluhan');
                 $table->timestamp('created_at')->useCurrent();
-            });
         });
+
     }
 
     /**

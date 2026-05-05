@@ -11,18 +11,6 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Laravel\Sanctum\HasApiTokens; // token login
 use Filament\Panel; //access admin
 
-// Update Fillable agar sesuai dengan kolom di migrasi MajaDigi kamu
-#[Fillable([
-    'name',
-    'email',
-    'password',
-    'phone_number',
-    'address',
-    'latitude',
-    'longitude',
-    'birth_date',
-    'role'
-])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -32,6 +20,18 @@ class User extends Authenticatable
     // Beritahu Laravel bahwa Primary Key kita adalah String (UUID)
     protected $keyType = 'string';
     public $incrementing = false;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'phone_number',
+        'address',
+        'latitude',
+        'longitude',
+        'birth_date',
+        'role',
+    ];
 
     /**
      * Get the attributes that should be cast.

@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kesehatan_users', function (Blueprint $table) {
-            Schema::create('kesehatan_user', function (Blueprint $table) {
+        Schema::create('kesehatan_user', function (Blueprint $table) {
 
                 $table->uuid('id')->primary();
 
@@ -27,7 +26,6 @@ return new class extends Migration
                 $table->foreign('medical_record_id')
                     ->references('id')
                     ->on('medical_record');
-            });
         });
     }
 

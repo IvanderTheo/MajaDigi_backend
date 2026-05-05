@@ -14,9 +14,9 @@ class TransJatimRoutesDetailSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('trans_jatim__detail__routes')->truncate();
+        DB::table('trans_jatim_detail_routes')->truncate();
 
-        DB::table('trans_jatim__detail__routes')->insert([
+        DB::table('trans_jatim_detail_routes')->insert([
             [
                 'halte_name' => 'Halte Terminal Porong',
                 'latitude' => '-7.538562',

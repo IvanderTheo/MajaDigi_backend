@@ -14,8 +14,5 @@ class TransJatimTripsSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('transjatim_trips')->insert([
-            []
-        ]);
     }
 }

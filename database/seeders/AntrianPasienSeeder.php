@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class AntrianPasienSeeder extends Seeder
 {
@@ -14,9 +15,16 @@ class AntrianPasienSeeder extends Seeder
      */
     public function run(): void
     {
-         DB::table('antrian_pasien')->insert([
+        $user = User::create([
+            'name' => 'test',
+            'email' => 'test@mail.com',
+            'password' => bcrypt('123'),
+            'role' => 'user',
+        ]);
+
+        DB::table('antrian_pasien')->insert([
             [
-                'user_id' => '900e803d-61ce-4205-b0bd-662ac76e9674',
+                'user_id' => $user->id,
                 'rs_id' => 1,
                 'queue_number' => 1,
                 'service_type' => 'Poli Umum',
