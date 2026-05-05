@@ -1,39 +1,30 @@
-FROM php:8.4-fpm
+FROM php:8.3-fpm
 
-# System dependencies
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libpq-dev libicu-dev \
-    && rm -rf /var/lib/apt/lists/*
+    git \
+    curl \
+    unzip \
+    zip \
+    libzip-dev \
+    libicu-dev \
+    libpq-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev
 
-# PHP extensions
+RUN docker-php-ext-configure intl
+
 RUN docker-php-ext-install \
+    pdo \
+    pdo_mysql \
     pdo_pgsql \
     zip \
     intl
 
-# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-# Copy dependency files first (IMPORTANT FOR CACHE)
-COPY composer.json composer.lock ./
-
-# Install dependencies (production safe)
-RUN composer install \
-    --no-dev \
-    --prefer-dist \
-    --no-interaction \
-    --optimize-autoloader
-
-# Copy full project AFTER composer install
 COPY . .
 
-# Permissions (Laravel wajib)
-RUN chmod -R 775 storage bootstrap/cache
-
-# Optimize Laravel (optional tapi recommended)
-RUN php artisan config:cache || true
-RUN php artisan route:cache || true
-
-CMD ["php-fpm"]
+RUN composer install --no-dev --optimize-autoloader
