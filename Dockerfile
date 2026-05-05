@@ -5,8 +5,10 @@ RUN apt-get update && apt-get install -y \
     git curl unzip zip libicu-dev libzip-dev \
     && docker-php-ext-install intl zip pdo pdo_mysql
 
-# disable default mpm_prefork to avoid MPM conflict, then enable mod_rewrite
+# disable ALL MPM modules to avoid "More than one MPM loaded" conflict, then enable mod_rewrite
 RUN a2dismod mpm_prefork
+RUN a2dismod mpm_worker
+RUN a2dismod mpm_event
 RUN a2enmod rewrite
 
 # set document root to Laravel's public directory
