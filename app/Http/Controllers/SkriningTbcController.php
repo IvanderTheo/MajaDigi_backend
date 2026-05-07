@@ -24,9 +24,27 @@ class SkriningTbcController extends Controller
 
     public function store(Request $request, SkriningTbcService $service)
     {
-        $data = $request->all();
+        $request->validate([
+            'user_id' => 'required|uuid|exists:users,id',
+            'cough_duration' => 'required|integer|min:0|max:365',
+            'fever' => 'required|boolean',
+            'weight_loss' => 'required|boolean',
+            'night_sweat' => 'required|boolean',
+        ]);
 
-        $data['screening_result'] = $service->calculate($data);
+        $data = $request->only([
+            'user_id',
+            'cough_duration',
+            'fever',
+            'weight_loss',
+            'night_sweat'
+        ]);
+
+        $result = $service->calculate($data);
+
+        $data['screening_result'] = $result['result'];
+        $data['risk_level'] = $result['risk_level'];
+        $data['score'] = $result['score'];
         $data['screening_date'] = now();
 
         SkriningTbc::create($data);
