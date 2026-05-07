@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('kabupaten');
             $table->integer('quota');
             $table->integer('distributed');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

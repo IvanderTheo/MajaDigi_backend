@@ -16,6 +16,6 @@ class TransJatimRouteDetail extends Model
     ];
 
     public function transjatim():BelongsTo{
-        return $this->belongsTo(TransJatim::class);
+        return $this->belongsTo(TransJatim::class,'transjatim_route_id');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable([
     'name',
@@ -21,4 +22,8 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 class ProgramBansos extends Model
 {
     protected $table = 'program_bansos';
+
+    public function bansosKabupaten(): HasMany {
+        return $this->hasMany(BansosKabupaten::class, 'program_id','id');
+    }
 }

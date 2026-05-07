@@ -5,7 +5,7 @@ namespace App\Filament\Resources\TransJatims;
 use App\Filament\Resources\TransJatims\Pages\CreateTransJatim;
 use App\Filament\Resources\TransJatims\Pages\EditTransJatim;
 use App\Filament\Resources\TransJatims\Pages\ListTransJatims;
-use App\Filament\Resources\TransJatims\RelationManagers\DetailsRelationManager;
+use App\Filament\Resources\TransJatims\RelationManagers\TransJatimDetailRelationManager;
 use App\Filament\Resources\TransJatims\Schemas\TransJatimForm;
 use App\Filament\Resources\TransJatims\Tables\TransJatimsTable;
 use App\Models\TransJatim;
@@ -37,7 +37,7 @@ class TransJatimResource extends Resource
     {
         return [
             //
-            DetailsRelationManager::class,
+            TransJatimDetailRelationManager::class,
         ];
     }
 

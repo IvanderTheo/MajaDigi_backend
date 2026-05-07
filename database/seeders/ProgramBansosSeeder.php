@@ -9,23 +9,25 @@ class ProgramBansosSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('program_bansos')->insert([
-            [
-                'name' => 'Bantuan Langsung Tunai (BLT)',
-                'description' => 'Bantuan uang tunai untuk masyarakat kurang mampu.',
-                'total_fund' => 500000000.00, // Format decimal 15,2
-                'quota_total' => 1000,
-                'quota_distributed' => 500,
-                'percentage' => 50.00, // Format decimal 5,2
-            ],
-            [
-                'name' => 'Program Keluarga Harapan (PKH)',
-                'description' => 'Bantuan sosial bersyarat kepada Keluarga Penerima Manfaat.',
-                'total_fund' => 1000000000.00,
-                'quota_total' => 2000,
-                'quota_distributed' => 1500,
-                'percentage' => 75.00,
-            ]
-        ]);
+        $programs = [];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $quota = rand(100, 1000);
+            $distributed = rand(0, $quota);
+
+            $programs[] = [
+                'id' => $i,
+                'name' => "Program Bansos $i",
+                'description' => "Deskripsi program bansos ke-$i",
+                'total_fund' => rand(10000000, 100000000),
+                'quota_total' => $quota,
+                'quota_distributed' => $distributed,
+                'percentage' => ($quota > 0) ? ($distributed / $quota) * 100 : 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        DB::table('program_bansos')->truncate();
+        DB::table('program_bansos')->insert($programs);
     }
 }

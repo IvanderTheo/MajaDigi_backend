@@ -44,8 +44,6 @@ Route::middleware('guest')->group(function () {
     //bansos
     Route::get('/program-bansos', [ProgramBansosController::class, 'index']);
 
-    //tbc
-    Route::get('/skrining-tbc', [SkriningTbcController::class, 'index']);
 });
 
 
@@ -63,8 +61,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/rumah-sakit/search', [RumahSakitController::class, 'search']);
     Route::get('/rumah-sakit/{id}', [RumahSakitController::class, 'show']);
     Route::get('/rumah-sakit/{id}/antrian', [RumahSakitController::class, 'antrian']);
+    Route::post('/antrian/daftar', [AntrianPasienController::class, 'daftarAntrian']);
 
-        Route::post('/antrian/daftar', [AntrianPasienController::class, 'daftarAntrian']);
+    //tbc
+    Route::get('/skrining-tbc/{id}', [SkriningTbcController::class, 'show']);
+    Route::post('/skrining-tbc',[SkriningTbcController::class,'store']);
 
     //role admin
     Route::middleware(['role:admin'])->group(function() {

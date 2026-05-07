@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('penerima_bansos')->truncate();
+        DB::table('bansos_kabupaten')->truncate();
+        DB::table('program_bansos')->truncate();
         DB::table('trans_jatim_detail_routes')->truncate();
         DB::table('transjatim_route')->truncate();
         DB::table('skrining_tbc')->truncate();
@@ -43,6 +46,9 @@ class DatabaseSeeder extends Seeder
             TransJatimRoutesSeeder::class,
             TransJatimTripsSeeder::class,
             TransJatimRoutesDetailSeeder::class,
+            ProgramBansosSeeder::class,
+            BansosKabupatenSeeder::class,
+            PenerimaBansosSeeder::class,
         ]);
     }
 }

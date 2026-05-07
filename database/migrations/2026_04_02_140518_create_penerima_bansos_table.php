@@ -18,13 +18,16 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->foreignId('program_id')
-                ->constrained('program_bansos');
+            $table->foreignId('bansos_kabupaten_id')
+                ->constrained('bansos_kabupaten');
 
             $table->decimal('amount', 15, 2);
             $table->string('status');
 
             $table->timestamp('received_date')->nullable();
+
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

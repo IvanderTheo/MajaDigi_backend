@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\TransJatims\RelationManagers;
+namespace App\Filament\Resources\BansosKabupatens\RelationManagers;
 
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
@@ -16,15 +16,15 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class DetailsRelationManager extends RelationManager
+class PenerimaBansosRelationManager extends RelationManager
 {
-    protected static string $relationship = 'route_details';
+    protected static string $relationship = 'penerimaBansos';
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('halte_name')
+                TextInput::make('user_id')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -33,11 +33,19 @@ class DetailsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('halte_name')
+            ->recordTitleAttribute('user_id')
             ->columns([
-                TextColumn::make('halte_name')->searchable(),
-                TextColumn::make('latitude'),
-                TextColumn::make('longitude')
+                TextColumn::make('bansosKabupaten.kabupaten')->label('nama Kabupaten'),
+                TextColumn::make('user.name')->label('nama')->searchable(),
+                TextColumn::make('user.email')->label('email')->searchable()->default('-'),
+                TextColumn::make('user.phone_number')->label('no. telp')->searchable()->default('-'),
+                TextColumn::make('user.address')->label('alamat')->searchable()->default('-'),
+                TextColumn::make('bansosKabupaten.program.name')->searchable(),
+                TextColumn::make('bansosKabupaten.kabupaten')->label('kabupaten')->searchable(),
+                TextColumn::make('amount')->sortable(),
+                TextColumn::make('status'),
+                TextColumn::make('created_at'),
+                TextColumn::make('updated_at'),
             ])
             ->filters([
                 //

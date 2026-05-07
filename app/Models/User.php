@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Filament\Models\Contracts\FilamentUser; //verif role
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids; // Tambahkan ini
@@ -52,5 +55,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool //access admin
     {
         return $this->role === 'admin' && $panel->getId() === 'admin';
+    }
+
+    //penerima bansos
+    public function penerimaBansos() : HasMany {
+        return $this->hasMany(PenerimaBansos::class,'user_id','id');
     }
 }

@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('quota_distributed');
 
             $table->decimal('percentage', 5, 2);
+
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 
