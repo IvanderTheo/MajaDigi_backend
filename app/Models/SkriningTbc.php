@@ -16,6 +16,8 @@ class SkriningTbc extends Model
         'fever',
         'weight_loss',
         'night_sweat',
+        'score',
+        'risk_level',
         'screening_result',
         'screening_date',
     ];
