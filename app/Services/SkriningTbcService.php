@@ -12,7 +12,7 @@ class SkriningTbcService
         //
     }
 
-    public function calculate(array $data): string
+    public function calculate(array $data)
     {
         $score = 0;
 

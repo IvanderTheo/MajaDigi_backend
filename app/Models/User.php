@@ -61,4 +61,8 @@ class User extends Authenticatable implements FilamentUser
     public function penerimaBansos() : HasMany {
         return $this->hasMany(PenerimaBansos::class,'user_id','id');
     }
+
+    public function skriningTbc() : HasOne {
+        return $this->hasOne(SkriningTbc::class,'user_id','id');
+    }
 }

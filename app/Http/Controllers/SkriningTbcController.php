@@ -14,7 +14,7 @@ class SkriningTbcController extends Controller
     }
     public function show($id)
     {
-        $result = SkriningTbc::where('used_id',$id)->firstOrFail();
+        $result = SkriningTbc::where('user_id',$id)->firstOrFail();
         return response()->json([
             'status'=>'success',
             'message'=>'success retrieved data',
@@ -39,6 +39,10 @@ class SkriningTbcController extends Controller
             'weight_loss',
             'night_sweat'
         ]);
+
+        $data['fever'] = $request->boolean('fever');
+        $data['weight_loss'] = $request->boolean('weight_loss');
+        $data['night_sweat'] = $request->boolean('night_sweat');
 
         $result = $service->calculate($data);
 

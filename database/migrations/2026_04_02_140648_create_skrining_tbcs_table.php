@@ -20,9 +20,9 @@ return new class extends Migration
 
             //screening
             $table->integer('cough_duration');
-            $table->boolean('fever');
-            $table->boolean('weight_loss');
-            $table->boolean('night_sweat');
+            $table->smallInteger('fever');
+            $table->smallInteger('weight_loss');
+            $table->smallInteger('night_sweat');
 
             //result
             $table->string('screening_result');

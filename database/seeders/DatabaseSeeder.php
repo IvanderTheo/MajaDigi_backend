@@ -42,7 +42,6 @@ class DatabaseSeeder extends Seeder
             KamarRsSeeder::class,
             KamarSoetomoSeeder::class,
             AntrianPasienSeeder::class,
-            SkriningTbcSeeder::class,
             TransJatimRoutesSeeder::class,
             TransJatimTripsSeeder::class,
             TransJatimRoutesDetailSeeder::class,

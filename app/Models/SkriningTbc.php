@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SkriningTbc extends Model
 {
@@ -33,4 +34,8 @@ class SkriningTbc extends Model
         'night_sweat' => 'boolean',
         'screening_date' => 'datetime',
     ];
+
+    public function skriningTbc() : BelongsTo {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
